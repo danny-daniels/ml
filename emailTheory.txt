@@ -1,0 +1,74 @@
+K-Nearest Neighbor (KNN) Algorithm:
+K-Nearest Neighbour is one of the simplest Machine Learning algorithms based on Supervised Learning
+technique. K-NN algorithm assumes the similarity between the new case/data and available cases and put the
+new case into the category that is most similar to the available categories. K-NN algorithm stores all the
+available data and classifies a new data point based on the similarity. This means when new data appears then
+it can be easily classified into a well suited category by using K- NN algorithm. K-NN is a non-parametric
+algorithm, which means it does not make any assumption on underlying data.
+
+How does K-NN work?
+The K-NN working can be explained on the basis of the below algorithm:
+• Step-1: Select the number K of the neighbors
+
+Department of Computer Engineering, SITS, Narhe LP III Lab Manual
+• Step-2: Calculate the Euclidean distance of K number of neighbors
+• Step-3: Take the K nearest neighbors as per the calculated Euclidean distance.
+• Step-4: Among these k neighbors, count the number of the data points in each category.
+• Step-5: Assign the new data points to that category for which the number of the neighbor is
+maximum.
+• Step-6: Our model is ready.
+
+Advantages of KNN Algorithm:
+• It is simple to implement.
+• It is robust to the noisy training data
+• It can be more effective if the training data is large.
+Disadvantages of KNN Algorithm:
+• Always needs to determine the value of K which may be complex some time.
+• The computation cost is high because of calculating the distance between the data points for all the
+training samples.
+
+Support Vector Machine or SVM is one of the most popular Supervised Learning algorithms, which is used
+for Classification as well as Regression problems. However, primarily, it is used for Classification problems
+in Machine Learning.
+The goal of the SVM algorithm is to create the best line or decision boundary that can segregate n-
+dimensional space into classes so that we can easily put the new data point in the correct category in the
+future. This best decision boundary is called a hyperplane.
+SVM chooses the extreme points/vectors that help in creating the hyperplane. These extreme cases are called
+as support vectors, and hence algorithm is termed as Support Vector Machine.
+SVM algorithm can be used for Face detection, image classification, text categorization, etc.
+For analysis of performance of KNN and SVM, use different evaluation metrics like accuracy, precision,
+recall, F-score, etc.
+
+**************Code:**************
+ibraries Import:
+
+The code imports necessary libraries such as Pandas, NumPy, Seaborn, Matplotlib, and scikit-learn modules.
+Data Loading and Initial Inspection:
+
+Reads an 'emails.csv' file into a Pandas DataFrame named 'df'.
+Displays the first few rows of the dataset using df.head().
+Checks for missing values in the DataFrame using df.isnull().sum() and drops those rows with missing values using df.dropna(inplace=True).
+Drops the 'Email No.' column as it seems to be an identifier and might not provide predictive value.
+Data Preparation for Modeling:
+
+Separates the data into feature variables (X) and the target variable (y) where 'Prediction' column is the target variable and the rest are features.
+Scales the feature variables using scale() from scikit-learn's preprocessing module.
+Train-Test Split:
+
+Splits the dataset into training and testing sets using train_test_split() from scikit-learn, with a test size of 30% and a specified random state.
+K-Nearest Neighbors (KNN) Classification:
+
+Initiates a KNN classifier with 7 neighbors.
+Trains the KNN model using the training data with knn.fit(X_train, y_train).
+Performs predictions on the test data using the trained model and stores the results in y_pred.
+Calculates and prints the accuracy score of the KNN model using metrics.accuracy_score().
+Generates a confusion matrix using metrics.confusion_matrix() to evaluate the performance of the KNN model.
+Support Vector Machine (SVM) Classification:
+
+Initializes an SVM model with a regularization parameter 'C' set to 1.
+Trains the SVM model using the training data with model.fit(X_train, y_train).
+Performs predictions on the test data using the trained SVM model and stores the results in y_pred.
+Computes and prints the accuracy score of the SVM model using metrics.accuracy_score().
+Output and Evaluation:
+
+Displays the predicted values, accuracy scores for both KNN and SVM models, and confusion matrices for better understanding of model performance.

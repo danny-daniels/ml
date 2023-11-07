@@ -1,0 +1,68 @@
+Normalization in Machine Learning:
+Normalization is one of the most frequently used data preparation techniques, which helps us to change the
+values of numeric columns in the dataset to use a common scale. Normalization is a scaling technique in
+Machine Learning applied during data preparation to change the values of numeric columns in the dataset to
+use a common scale. It is not necessary for all datasets in a model. It is required only when features of
+machine learning models have different ranges.
+Mathematically, we can calculate normalization with the below formula:
+Xn = (X - Xminimum) / ( Xmaximum - Xminimum)
+o Xn = Value of Normalization
+o Xmaximum = Maximum value of a feature
+o Xminimum = Minimum value of a feature
+
+accuracy= no. of correct predictions/total no. of predictions
+accuracy = tp +tn/tp + tn + fp + fn
+
+confusion matrix:
+The confusion matrix is a matrix used to determine the performance of the classification models for a given
+set of test data. It can only be determined if the true values for test data are known.
+
+n = total predictions |    actual: no     |    actual: no
+______________________|___________________|________________ 
+predicted:no          |   true negative   |  false positive
+______________________|___________________|________________               
+predicted: yes        |   false negative  |   true positive
+
+
+True Negative: Model has given prediction No, and the real or actual value was also No.
+o True Positive: The model has predicted yes, and the actual value was also true.
+o False Negative: The model has predicted no, but the actual value was Yes, it is also called as Type-II
+error.
+o False Positive: The model has predicted Yes, but the actual value was No. It is also called a Type-I
+error.
+
+
+*****************code:***************
+
+Data Loading and Initial Analysis:
+Imports necessary libraries such as Pandas, NumPy, Seaborn, Matplotlib, and the required TensorFlow/Keras modules.
+Reads the dataset into a Pandas DataFrame named df.
+Displays the first few rows of the DataFrame using df.head().
+Checks the shape, missing values, information, and data types of the dataset using functions like df.shape, df.isnull().sum(), df.info(), df.dtypes, and df.columns.
+Drops unnecessary columns ('RowNumber', 'Surname', 'CustomerId') from the DataFrame.
+
+Data Visualization:
+Defines a function visualization() to create histograms comparing 'Tenure' and 'Age' for customers who exited ('Exited' = 1) and those who did not ('Exited' = 0).
+Visualizes the 'Tenure' and 'Age' data using the defined function.
+
+Data Preprocessing:
+Prepares feature and target variables (X and y) for the model by selecting specific columns and performing one-hot encoding on categorical variables ('Geography' and 'Gender').
+Splits the data into training and testing sets using train_test_split().
+
+Data Normalization:
+Scales the numerical feature variables using StandardScaler to standardize them (mean 0 and standard deviation 1).
+
+Building a Neural Network Model:
+Creates a sequential neural network model using Keras.
+
+Adds three layers using Dense:
+Two hidden layers with ReLU activation and six units each.
+An output layer with a Sigmoid activation function.
+Compiles the model using 'adam' optimizer and 'binary_crossentropy' loss function.
+Displays a summary of the model's architecture.
+Fits the model using the training data for 50 epochs with a batch size of 10.
+
+Predictions and Evaluation:
+Makes predictions on the test data and rounds the values to binary results using a threshold of 0.5.
+Computes the confusion matrix, accuracy score, and generates a classification report to evaluate the model's performance.
+Visualizes the confusion matrix using Seaborn's heatmap.

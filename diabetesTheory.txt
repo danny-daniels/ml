@@ -1,0 +1,98 @@
+K-Nearest Neighbor (KNN) Algorithm:
+K-Nearest Neighbour is one of the simplest Machine Learning algorithms based on Supervised Learning
+technique. K-NN algorithm assumes the similarity between the new case/data and available cases and put the
+new case into the category that is most similar to the available categories. K-NN algorithm stores all the
+available data and classifies a new data point based on the similarity. This means when new data appears then
+it can be easily classified into a well suited category by using K- NN algorithm. K-NN is a non-parametric
+algorithm, which means it does not make any assumption on underlying data.
+
+How does K-NN work?
+The K-NN working can be explained on the basis of the below algorithm:
+• Step-1: Select the number K of the neighbors
+• Step-2: Calculate the Euclidean distance of K number of neighbors
+• Step-3: Take the K nearest neighbors as per the calculated Euclidean distance.
+• Step-4: Among these k neighbors, count the number of the data points in each category.
+• Step-5: Assign the new data points to that category for which the number of the neighbor is
+maximum.
+• Step-6: Our model is ready.
+
+Accuracy - Accuracy is the most intuitive performance measure and it is simply a ratio of correctly predicted
+observation to the total observations. One may think that, if we have high accuracy then our model is best.
+Yes, accuracy is a great measure but only when you have symmetric datasets where values of false positive
+and false negatives are almost same. Therefore, you have to look at other parameters to evaluate the
+performance of your model. For our model, we have got 0.803 which means our model is approx. 80%
+accurate.
+
+Accuracy = TP+TN/TP+FP+FN+TN
+
+Precision - Precision is the ratio of correctly predicted positive observations to the total predicted positive
+observations. The question that this metric answer is of all passengers that labeled as survived, how many
+actually survived? High precision relates to the low false positive rate. We have got 0.788 precision which is
+pretty good.
+
+Precision = TP/TP+FP
+
+Recall (Sensitivity) - Recall is the ratio of correctly predicted positive observations to the all observations in
+actual class - yes. The question recall answers is: Of all the passengers that truly survived, how many did we
+label? We have got recall of 0.631 which is good for this model as it‘s above 0.5.
+
+Recall = TP/TP+FN
+
+Error Rate - what percentage of our prediction are wrong.
+Error Rate = 1-Accuracy
+
+accuracy= no. of correct predictions/total no. of predictions
+accuracy = tp +tn/tp + tn + fp + fn
+
+confusion matrix:
+The confusion matrix is a matrix used to determine the performance of the classification models for a given
+set of test data. It can only be determined if the true values for test data are known.
+
+n = total predictions |    actual: no     |    actual: no
+______________________|___________________|________________ 
+predicted:no          |   true negative   |  false positive
+______________________|___________________|________________               
+predicted: yes        |   false negative  |   true positive
+
+
+True Negative: Model has given prediction No, and the real or actual value was also No.
+o True Positive: The model has predicted yes, and the actual value was also true.
+o False Negative: The model has predicted no, but the actual value was Yes, it is also called as Type-II
+error.
+o False Positive: The model has predicted Yes, but the actual value was No. It is also called a Type-I
+error.
+
+
+*******code:**********
+
+Libraries and Data Loading:
+Libraries like Pandas, NumPy, Seaborn, Matplotlib are imported, and warnings are suppressed for cleaner output.
+The 'diabetes.csv' file is read into a Pandas DataFrame named 'df'.
+
+Data Preparation:
+The column names in the DataFrame are checked using df.columns.
+Null values are examined across columns using df.isnull().sum().
+
+Data Splitting and Scaling:
+The dataset is prepared for modeling. Features (X) exclude the 'Outcome' column, which represents the target variable 'y' (Outcome of diabetes).
+Features (X) are scaled using scale() from scikit-learn to standardize the data.
+
+Train-Test Split:
+The dataset is split into training and testing sets using train_test_split() from scikit-learn. It uses a test size of 30% and a specified random state.
+
+K-Nearest Neighbors Classification:
+A KNN classifier is instantiated with 7 neighbors using KNeighborsClassifier.
+The model is trained on the training data using knn.fit(X_train, y_train).
+Predictions are made on the test data using the trained model (knn.predict(X_test)).
+
+Model Evaluation Metrics:
+A variety of classification metrics are calculated and printed to evaluate the model's performance.
+Confusion Matrix: Displays true positives, true negatives, false positives, and false negatives.
+Accuracy Score: Measures the overall accuracy of the model's predictions.
+
+Error Rate: Measures the rate of misclassified examples.
+Precision: Measures the ratio of correctly predicted positive observations to the total predicted positives.
+Recall: Measures the ratio of correctly predicted positive observations to the actual positives.
+Classification Report: Provides a comprehensive report with precision, recall, F1-score, and support for each class.
+
+

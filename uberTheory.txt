@@ -1,0 +1,71 @@
+Linear Regression:
+Linear regression is one of the easiest and most popular Machine Learning algorithms. It is a statistical method
+that is used for predictive analysis. Linear regression makes predictions for continuous/real or numeric variables
+such as sales, salary, age, product price, etc.
+Linear regression algorithm shows a linear relationship between a dependent (y) and one or more independent
+(y) variables, hence called as linear regression. Since linear regression shows the linear relationship, which
+means it finds how the value of the dependent variable is changing according to the value of the independent
+variable.
+The linear regression model provides a sloped straight line representing the relationship between the variables.
+Mathematically, we can represent a linear regression as:
+y= a0+a1x+ ε
+Here,
+Y= Dependent Variable (Target Variable)
+X= Independent Variable (predictor Variable)
+a0= intercept of the line (Gives an additional degree of freedom)
+a1 = Linear regression coefficient (scale factor to each input value).
+ε = random error
+
+Random Forest:
+Random Forest is a popular machine learning algorithm that belongs to the supervised learning technique. It can
+be used for both Classification and Regression problems in ML. It is based on the concept of ensemble
+learning, which is a process of combining multiple classifiers to solve a complex problem and to improve the
+performance of the model.
+As the name suggests, "Random Forest is a classifier that contains a number of decision trees on various subsets
+of the given dataset and takes the average to improve the predictive accuracy of that dataset." Instead of relying
+on one decision tree, the random forest takes the prediction from each tree and based on the majority votes of
+predictions, and it predicts the final output.
+The greater number of trees in the forest leads to higher accuracy and prevents the problem of overfitting.
+
+Python Packages needed
+● pandas
+ Data Analytics
+● numpy
+ Numerical Computing
+● matplotlib.pyplot
+ Plotting graphs
+● Sklearn
+ Regression Classes
+
+*********Code:********
+
+Importing Libraries: The code starts by importing necessary libraries such as Pandas, NumPy, Seaborn, Matplotlib for data manipulation, visualization, and regression modeling.
+
+Loading and Inspecting Data:
+
+Loads the Uber dataset from a CSV file.
+Displays the first few rows of the dataset and the basic information using df.head() and df.info() respectively.
+Drops irrelevant columns ('Unnamed: 0', 'key').
+Handles missing values by filling null values in 'dropoff_latitude' and 'dropoff_longitude' columns with mean and median values, respectively.
+Feature Engineering:
+
+Converts the 'pickup_datetime' column to a datetime object.
+Extracts features like hour, day, month, year, and day of the week from the 'pickup_datetime' column.
+Drops the 'pickup_datetime' column after feature extraction.
+Handling Outliers:
+
+Identifies and treats outliers using a function that employs the IQR (Interquartile Range) method.
+Generates boxplots before and after outlier treatment to visually check the impact.
+Calculating Distance:
+
+Utilizes the Haversine formula to calculate the distance between pickup and dropoff coordinates.
+Filters the dataset based on distance criteria and invalid coordinate ranges.
+Data Analysis:
+
+Examines the dataset for null values, visualizes their presence using a heatmap, and checks the correlation between variables.
+Regression Modeling:
+
+Splits the dataset into features (X) and the target variable (y).
+Splits the data into training and testing sets.
+Utilizes Linear Regression and Random Forest Regression for modeling.
+Evaluates model performance using R-squared, Mean Squared Error (MSE), and Root Mean Squared Error (RMSE).
